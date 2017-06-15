@@ -1,4 +1,4 @@
-# lib_http
+# http
 异步请求网络的http封装库
 
 
@@ -15,5 +15,5 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.wuguangxin:lib_http:v1.0.0'
+	        compile 'com.github.wuguangxin:http:v1.0.0'
 	}
