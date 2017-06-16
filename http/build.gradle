@@ -49,10 +49,10 @@ publish {
     userOrg = 'wuguangxin'                   // bintray用户名
     repoName = 'maven'                       // Repositories名，所有library都默认使用"maven"
     // 可变配置
-    website = 'https://github.com/wuguangxin/xin-http'   // 项目的地址，不重要
-    artifactId = 'xin-http'                  // 上传到bintray里的Package Name(这里填什么就显示什么)
+    website = 'https://github.com/wuguangxin/http'   // 项目的地址，不重要
+    artifactId = 'http'                      // 上传到bintray里的Package Name(这里填什么就显示什么)
     publishVersion ='1.0.0'                  // 引用版本号 (这里填什么就显示什么)
     dryRun = false                           // false:上传，true：不上传
-    desc = '异步处理的http封装库'                         // 描述，不重要
+    desc = '异步处理的http封装库'              // 描述，不重要
 }
 
