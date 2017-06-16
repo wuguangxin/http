@@ -48,9 +48,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 简单封装了客户端请求服务器获取/提交数据的方法，如需强大功能，自行修改或更换，如使用AsyncHttpClient
- * 
- * @author wuguangxin
- * @date: 2014-12-30 下午1:54:57
+ *
+ * <p>Created by wuguangxin on 14/12/30 </p>
  */
 public class HttpClient{
 	private static final String TAG = "HttpClient";

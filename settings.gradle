@@ -1,1 +1,1 @@
-include ':app', ':xin_http'
+include ':app', ':xin-http'

@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
- * 封装请求参数的HashMap便捷类，需要Google的gson.jar支持
- * @author wuguangxin
- * @date: 2014-10-13 下午4:15:38
+ * 封装请求参数的HashMap便捷类，需要Google的gson.jar支持。
+ *
+ * <p>Created by wuguangxin on 14/10/13 </p>
  */
 public class Params extends LinkedHashMap<String, Object> {
     private static final long serialVersionUID = 1L;

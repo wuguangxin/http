@@ -9,9 +9,8 @@ import java.io.File;
 
 /**
  * 请求服务器时回调类
- * 
- * @author wuguangxin
- * @date: 2014-12-29 下午6:27:12
+ *
+ * <p>Created by wuguangxin on 14/12/29 </p>
  */
 public class ResponseHandler extends BaseHandler{
 	private boolean cancelled;

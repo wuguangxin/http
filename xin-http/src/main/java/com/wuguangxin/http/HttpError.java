@@ -1,10 +1,9 @@
 package com.wuguangxin.http;
 
 /**
- * 异常
+ * Http异常
  *
- * @author wuguangxin
- * @date: 2015-2-9 下午3:15:41
+ * <p>Created by wuguangxin on 15/2/9 </p>
  */
 public class HttpError {
 	public static final String DEFAULT_EXCEPTION = "网络异常";

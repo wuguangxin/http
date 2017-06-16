@@ -7,8 +7,7 @@ import java.io.File;
 /**
  * Http请求结果处理的的一些回调接口
  *
- * @author: wuguangxin
- * @date: 2015/3/31 11:37
+ * <p>Created by wuguangxin on 15/3/31 </p>
  */
 public abstract class BaseHandler extends Handler {
 	/**

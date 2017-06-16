@@ -3,8 +3,7 @@ package com.wuguangxin.http;
 /**
  * Http异步处理状态
  *
- * @author wuguangxin
- * @date: 2014-12-31 下午3:07:46
+ * <p>Created by wuguangxin on 14/12/31 </p>
  */
 public class HttpState{
 	/**

@@ -3,8 +3,7 @@ package com.wuguangxin.http;
 /**
  * Http联网操作任务类
  *
- * @author wuguangxin
- * @date: 2014-12-31 下午3:13:06
+ * <p>Created by wuguangxin on 14/12/31 </p>
  */
 public class HttpTask implements Runnable{
 
