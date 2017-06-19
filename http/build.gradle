@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-apply plugin: 'com.novoda.bintray-release' // bintray
+//apply plugin: 'com.novoda.bintray-release' // bintray
 
 android {
     compileSdkVersion 19
@@ -41,18 +41,18 @@ dependencies {
     })
 }
 
-// 配置 bintray
-publish {
-    // 固定配置
-    bintrayUser = 'wuguangxin'               // 登陆账号
-    groupId = 'com.wuguangxin'               // 项目的包名
-    userOrg = 'wuguangxin'                   // bintray用户名
-    repoName = 'maven'                       // Repositories名，所有library都默认使用"maven"
-    // 可变配置
-    website = 'https://github.com/wuguangxin/http'   // 项目的地址，不重要
-    artifactId = 'http'                      // 上传到bintray里的Package Name(这里填什么就显示什么)
-    publishVersion ='1.0.0'                  // 引用版本号 (这里填什么就显示什么)
-    dryRun = false                           // false:上传，true：不上传
-    desc = '异步处理的http封装库'              // 描述，不重要
-}
+//// 配置 bintray
+//publish {
+//    // 固定配置
+//    bintrayUser = 'wuguangxin'               // 登陆账号
+//    groupId = 'com.wuguangxin'               // 项目的包名
+//    userOrg = 'wuguangxin'                   // bintray用户名
+//    repoName = 'maven'                       // Repositories名，所有library都默认使用"maven"
+//    // 可变配置
+//    website = 'https://github.com/wuguangxin/http'   // 项目的地址，不重要
+//    artifactId = 'http'                      // 上传到bintray里的Package Name(这里填什么就显示什么)
+//    publishVersion ='1.0.0'                  // 引用版本号 (这里填什么就显示什么)
+//    dryRun = false                           // false:上传，true：不上传
+//    desc = '异步处理的http封装库'              // 描述，不重要
+//}
 

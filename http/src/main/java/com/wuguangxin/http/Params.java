@@ -77,14 +77,11 @@ public class Params extends LinkedHashMap<String, Object> {
 		}
 		StringBuilder paramsBuilder = new StringBuilder();
 		Iterator<String> paramsIterator = keySet().iterator();
-		String key = null;
+		String key;
 		while (paramsIterator.hasNext()) {
 			key = paramsIterator.next();
 			if(!TextUtils.isEmpty(key)){
-				Object value = get(key);
-				if (value != null && !TextUtils.isEmpty(value.toString())) {
-					paramsBuilder.append(key).append("=").append(value).append("&");
-				}
+				paramsBuilder.append(key).append("=").append(get(key)).append("&");
 			}
 		}
 		if(removeLastStr){
