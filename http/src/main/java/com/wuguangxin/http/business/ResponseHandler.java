@@ -69,6 +69,10 @@ public class ResponseHandler extends BaseHandler{
 		}
 	}
 
+	/**
+	 * 处理失败状态
+	 * @param msg 失败消息
+	 */
 	private void handlerFailure(Message msg){
 		String errMsg = HttpError.UNKNOWN_HOST_EXCEPTION;
 		Object obj = msg.obj;
@@ -82,7 +86,7 @@ public class ResponseHandler extends BaseHandler{
 	
 	/**
 	 * 是否取消网络请求
-	 * @return
+	 * @return 是否取消
 	 */
 	public boolean isCancelled(){
 		return cancelled;
@@ -90,7 +94,7 @@ public class ResponseHandler extends BaseHandler{
 
 	/**
 	 * 设置取消网络请求
-	 * @param cancelled
+	 * @param cancelled 是否取消
 	 */
 	public void setCancelled(boolean cancelled){
 		this.cancelled = cancelled;
@@ -98,8 +102,8 @@ public class ResponseHandler extends BaseHandler{
 
 	/**
 	 * 加密数据算法
-	 * @param text
-	 * @return
+	 * @param text 明文
+	 * @return 密文
 	 */
 	public String encode(String text){
 		return text;
@@ -107,8 +111,8 @@ public class ResponseHandler extends BaseHandler{
 
 	/**
 	 * 实现解密数据算法
-	 * @param text
-	 * @return
+	 * @param text 密文
+	 * @return 明文
 	 */
 	public String decode(String text){
 		return text;
@@ -116,8 +120,8 @@ public class ResponseHandler extends BaseHandler{
 
 	/**
 	 * MD5加密
-	 * @param text
-	 * @return
+	 * @param text 文本
+	 * @return MD5密文
 	 */
 	public String md5(String text){
 		return text;

@@ -80,7 +80,7 @@ public class HttpClient{
 	
 	/**
 	 * 是否打印日志
-	 * @return
+	 * @return 是否打印日志
 	 */
 	public static boolean isPrintLog(){
 		return printLog;
@@ -88,7 +88,7 @@ public class HttpClient{
 
 	/**
 	 * 设置是否打印日志
-	 * @param printLog
+	 * @param printLog 是否打印日志
 	 */
 	public static void setPrintLog(boolean printLog){
 		HttpClient.printLog = printLog;
@@ -96,7 +96,7 @@ public class HttpClient{
 
 	/**
 	 * 设置连接服务器超时时间
-	 * @param connTimeout
+	 * @param connTimeout 超时时间
 	 */
 	public void setConnTimeout(int connTimeout){
 		this.connTimeout = connTimeout;
@@ -104,7 +104,7 @@ public class HttpClient{
 
 	/**
 	 * 设置服务器响应时间
-	 * @param soTimeout
+	 * @param soTimeout 响应时间
 	 */
 	public void setSoTimeout(int soTimeout){
 		this.soTimeout = soTimeout;
@@ -112,7 +112,7 @@ public class HttpClient{
 
 	/**
 	 * 设置编码格式，默认UTF-8
-	 * @param urlEncoding
+	 * @param urlEncoding 编码格式
 	 */
 	public void setUrlEncoding(String urlEncoding){
 		this.urlEncoding = urlEncoding;
@@ -147,9 +147,11 @@ public class HttpClient{
 	public void post(String url, Params params, File file, ResponseHandler handler){
 		doPost(url, params, file, handler);
 	}
-	
-	/*
+
+	/**
 	 * 发送GET请求
+	 * @param url get请求地址
+	 * @param responseHandler 回调
 	 */
 	final private void doGet(final String url, final ResponseHandler responseHandler){
 		HttpTask httpTask = new HttpTask(){
@@ -181,8 +183,12 @@ public class HttpClient{
 		mThreadPool.execute(httpTask);
 	}
 	
-	/*
+	/**
 	 * 发送Post请求
+	 * @param url 请求地址
+	 * @param params 参数集
+	 * @param file 文件
+	 * @param responseHandler 回调
 	 */
 	final private void doPost(final String url, final Params params, final File file, final ResponseHandler responseHandler){
 		HttpTask httpTask = new HttpTask(){
@@ -287,7 +293,6 @@ public class HttpClient{
 	 * @param url 服务器地址
 	 * @param file 目标文件
 	 * @param responseHandler 回调
-	 * @return
 	 */
 	public void download(final String url, final File file, final ResponseHandler responseHandler){
 		HttpTask httpTask = new HttpTask(){
@@ -367,6 +372,7 @@ public class HttpClient{
 	
 	/**
 	 * 获取DefaultHttpClient
+	 * @return DefaultHttpClient
 	 */
 	final private DefaultHttpClient createHttpClient(){
 		HttpParams params = new BasicHttpParams();
@@ -388,8 +394,11 @@ public class HttpClient{
 //		return new DefaultHttpClient(params);
 	}
 
-	/*
+	/**
 	 * 发送数据到Handler进行处理
+	 * @param what Message.what
+	 * @param obj Message.obj
+	 * @param responseHandler 回调
 	 */
 	private void handleResponse(int what, Object obj, ResponseHandler responseHandler){
 		if(what == HttpState.SUCCESS){
@@ -424,7 +433,13 @@ public class HttpClient{
 			}
 		}
 	}
-	
+
+	/**
+	 * 发送message到handler
+	 * @param what what
+	 * @param obj obj
+	 * @param responseHandler 回调
+	 */
 	private void send(int what, Object obj, ResponseHandler responseHandler){
 		if(responseHandler != null){
 			responseHandler.sendMessage(Message.obtain(responseHandler, what, obj));

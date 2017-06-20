@@ -64,10 +64,10 @@ public abstract class BaseHandler extends Handler {
 	public void onFinish(){}
 
 	/**
-	 * 模拟服务器返回的字符串
-	 * <p/>
+	 * 模拟服务器返回的字符串。<br>
 	 * 开发时方便测试数据使用。在开发测试初期，可能服务器接口暂时无法联调，可以调用此方法模拟服务器返回的数据，<br>
 	 * 在调接口时，将先判断该方法的返回值，如果该值不为空，将使用该值作为返回值，并且不会做网络请求操作。<br>
+	 * @return  模拟数据
 	 */
 	public String getTestData(){
 		return null;
@@ -75,22 +75,22 @@ public abstract class BaseHandler extends Handler {
 
 	/**
 	 * 子类必须实现加密数据算法
-	 * @param text
-	 * @return
+	 * @param text 明文文本
+	 * @return 密文
      */
 	public abstract String encode(String text);
 
 	/**
 	 * 子类必须实现解密数据算法
-	 * @param text
-	 * @return
+	 * @param text 密文文本
+	 * @return 明文
      */
 	public abstract String decode(String text);
 
 	/**
 	 * 由子类实现MD5加密方法
-	 * @param text
-	 * @return
+	 * @param text 明文
+	 * @return 密文
 	 */
 	public abstract String md5(String text);
 }

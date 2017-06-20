@@ -18,10 +18,21 @@ public class Params extends LinkedHashMap<String, Object> {
     public Params() {
     }
 
-    public String optString(String key){
+	/**
+	 * 获取value
+	 * @param key key
+	 * @return value
+	 */
+	public String optString(String key){
         return optString(key, null);
     }
 
+	/**
+	 * 获取 String value
+	 * @param key key
+	 * @param defValue 默认 String value
+	 * @return String value
+	 */
     public String optString(String key, String defValue){
         if(TextUtils.isEmpty(key)){
             return defValue;
@@ -33,10 +44,21 @@ public class Params extends LinkedHashMap<String, Object> {
         return defValue;
     }
 
-    public int optInt(String key){
+	/**
+	 * 获取 int value
+	 * @param key key
+	 * @return int value
+	 */
+	public int optInt(String key){
         return optInt(key, 0);
     }
 
+	/**
+	 * 获取int value
+	 * @param key key
+	 * @param defValue 默认 int value
+	 * @return int value
+	 */
     public int optInt(String key, int defValue){
         if(TextUtils.isEmpty(key)){
             return defValue;
@@ -48,7 +70,12 @@ public class Params extends LinkedHashMap<String, Object> {
         return defValue;
     }
 
-
+	/**
+	 * 重写put方法，吧value=null的转换为""
+	 * @param key key
+	 * @param value value
+	 * @return Params
+	 */
     @Override
 	public Params put(String key, Object value){
 		if(value == null){
@@ -60,7 +87,7 @@ public class Params extends LinkedHashMap<String, Object> {
 
 	/**
 	  * 获取URL参数串（默认保留最后的&）
-	  * @return
+	  * @return URL参数串
 	  */
 	public String getUrlParams(){
 		return getUrlParams(false);
@@ -69,7 +96,7 @@ public class Params extends LinkedHashMap<String, Object> {
 	/**
 	 * 获取URL参数串（去除最后的&）
 	 * @param removeLastStr 是否删除最后一个“&”符号
-	 * @return
+	 * @return URL参数串
 	 */
 	public String getUrlParams(boolean removeLastStr){
 		if(isEmpty()){
@@ -100,7 +127,7 @@ public class Params extends LinkedHashMap<String, Object> {
 	
 	/**
 	 * 返回Json对象JSONObject，并且按A~Z进行排序；key和value必须是String类型
-	 * @return
+	 * @return JSONObject
 	 */
 	public JSONObject toJSONObject(){
 		return new JSONObject(this);
