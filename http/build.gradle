@@ -33,18 +33,10 @@ android {
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.7'
-    compile 'org.apache.httpcomponents:httpmime:4.5.2'
-//    compile 'org.apache.httpcomponents:httpclient:4.5.2'
-    //noinspection GradleDependency
-    compile 'com.android.support:support-v4:19.0.1'
-    //noinspection GradleDependency
-    compile 'com.android.support:support-v4:24.0.0'
-    //noinspection GradleDependency
-    compile 'com.android.support:support-annotations:24.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.zhy:okhttputils:2.6.2'  // okHttp
 }
 
 // 配置 bintray
@@ -57,8 +49,8 @@ publish {
     // 可变配置
     website = 'https://github.com/wuguangxin/http'   // 项目的地址，不重要
     artifactId = 'http'                      // 上传到bintray里的Package Name(这里填什么就显示什么)
-    publishVersion ='1.0.0'                  // 引用版本号 (这里填什么就显示什么)
+    publishVersion ='1.1.0'                  // 引用版本号 (这里填什么就显示什么)
     dryRun = false                           // false:上传，true：不上传
-    desc = '异步处理的http封装库'              // 描述，不重要
+    desc = '该版本删除HttpClient，使用OkHttp，但暂时使用zhy封装的OkHttpUtils（2.6.2版本）'                   // 描述，不重要
 }
 
