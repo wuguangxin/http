@@ -3,7 +3,7 @@ package com.wuguangxin.http;
 import org.json.JSONObject;
 
 /**
- * 便捷接口
+ * Params的接口
  * Created by wuguangxin on 14/10/13
  */
 public interface IParams {

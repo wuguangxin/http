@@ -15,35 +15,32 @@ import java.util.Iterator;
 public class Params extends HashMap<String, String> implements IParams {
     private static final long serialVersionUID = 1L;
 
-    public Params() {
-    }
-
 	/**
-	 * 重写put方法，吧value=null的转换为""
+	 * 处理当传入的Value不是String类型时，转换为String
 	 * @param key key
-	 * @param value value
+	 * @param value Object
 	 * @return Params
 	 */
-	@Override
-	public String put(String key, String value){
+	public Params put(String key, Object value){
 		if(value == null)
 			value = "";
-		return super.put(key, value);
+		super.put(key, String.valueOf(value));
+		return this;
 	}
 
-    @Override
-	public String optString(String key){
-        return optString(key, null);
-    }
+	@Override
+	public String optString(String key) {
+		return optString(key, null);
+	}
 
 	@Override
     public String optString(String key, String defValue){
         if(TextUtils.isEmpty(key)){
             return defValue;
         }
-        String obj = get(key);
+        Object obj = get(key);
         if(obj != null) {
-            return obj;
+            return (String) obj;
         }
         return defValue;
     }

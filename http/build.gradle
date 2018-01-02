@@ -2,15 +2,22 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'com.novoda.bintray-release' // bintray
 
+// 20171128
+def mModulesName = "support"
+def mVersionCode = 31
+def mVersionName = "1.1.6"
+def mDescription = "修改ViewPagerIndicator的指示器类型为可配置，优化和增加配置参数"
+
 android {
     compileSdkVersion 19
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0.0"
+        versionCode mVersionCode
+        versionName mVersionName
+        description mDescription
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,15 +49,14 @@ dependencies {
 // 配置 bintray
 publish {
     // 固定配置
-    bintrayUser = 'wuguangxin'               // 登陆账号
-    groupId = 'com.wuguangxin'               // 项目的包名
-    userOrg = 'wuguangxin'                   // bintray用户名
-    repoName = 'maven'                       // Repositories名，所有library都默认使用"maven"
+    bintrayUser = 'wuguangxin'              // 登陆账号
+    groupId = 'com.wuguangxin'              // 项目的包名
+    userOrg = 'wuguangxin'                  // bintray用户名
+    repoName = 'maven'                      // Repositories名，所有library都默认使用"maven"
     // 可变配置
-    website = 'https://github.com/wuguangxin/http'   // 项目的地址，不重要
-    artifactId = 'http'                      // 上传到bintray里的Package Name(这里填什么就显示什么)
-    publishVersion ='1.1.0'                  // 引用版本号 (这里填什么就显示什么)
-    dryRun = false                           // false:上传，true：不上传
-    desc = '该版本删除HttpClient，使用OkHttp，但暂时使用zhy封装的OkHttpUtils（2.6.2版本）'                   // 描述，不重要
+    website = 'https://github.com/wuguangxin/' + mModulesName   // 项目的地址，不重要
+    artifactId = mModulesName               // 上传到bintray里的Package Name(这里填什么就显示什么)
+    publishVersion = mVersionName           // 引用版本号 (这里填什么就显示什么)
+    dryRun = false                          // false:上传，true：不上传
+    desc = mDescription                     // 版本描述（不重要）
 }
-

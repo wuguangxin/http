@@ -4,26 +4,38 @@ import com.wuguangxin.http.Params;
 import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
+import java.util.Map;
+
 /**
  * OkHttp工具类。(目前暂时使用zhy封装的OkHttpUtils)。
  *
  * Created by wuguangxin on 17/6/20.
  */
-public class OkHttpUtils {
+public final class OkHttpUtils {
 	private static final String TAG = "OkHttpUtils";
 
-	private static final int DEF_CONN_TIMEOUT = 20000;
-	private static final int DEF_SO_TIMEOUT = 10000;
+	private static final int DEF_CONN_TIMEOUT = 30000;
+	private static final int DEF_SO_TIMEOUT = 30000;
 
 	private static int CONN_TIMEOUT = DEF_CONN_TIMEOUT;
 	private static int SO_TIMEOUT = DEF_SO_TIMEOUT;
 
 	public static void setConnTimeout(int connTimeout) {
-		CONN_TIMEOUT = connTimeout;
+		OkHttpUtils.CONN_TIMEOUT = connTimeout;
 	}
 
 	public static void setSoTimeout(int soTimeout) {
-		SO_TIMEOUT = soTimeout;
+		OkHttpUtils.SO_TIMEOUT = soTimeout;
+	}
+
+	private static Map<String, String> headers;
+
+	/**
+	 * 设置请求头信息
+	 * @param headers
+	 */
+	public static void setHeader(Map<String, String> headers) {
+		OkHttpUtils.headers = headers;
 	}
 
 	/**
@@ -36,6 +48,7 @@ public class OkHttpUtils {
 		com.zhy.http.okhttp.OkHttpUtils
 				.get()
 				.url(url)
+				.headers(headers)
 				.params(params)
 				.build()
 				.connTimeOut(CONN_TIMEOUT)
@@ -53,6 +66,7 @@ public class OkHttpUtils {
 		com.zhy.http.okhttp.OkHttpUtils
 				.post()
 				.url(url)
+				.headers(headers)
 				.params(params)
 				.build()
 				.connTimeOut(CONN_TIMEOUT)
@@ -69,6 +83,7 @@ public class OkHttpUtils {
 		com.zhy.http.okhttp.OkHttpUtils//
 				.get()
 				.url(url)
+				.headers(headers)
 				.build()
 				.execute(callBack);
 	}
@@ -82,6 +97,7 @@ public class OkHttpUtils {
 		com.zhy.http.okhttp.OkHttpUtils//
 				.post()
 				.url(url)
+				.headers(headers)
 				.build()
 				.execute(callBack);
 	}
