@@ -1,9 +1,13 @@
 package com.wuguangxin.http.okhttp;
 
+import android.text.TextUtils;
+
 import com.wuguangxin.http.Params;
 import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -49,7 +53,7 @@ public final class OkHttpUtils {
 				.get()
 				.url(url)
 				.headers(headers)
-				.params(params)
+				.params(getMaps(params))
 				.build()
 				.connTimeOut(CONN_TIMEOUT)
 				.readTimeOut(SO_TIMEOUT)
@@ -67,7 +71,7 @@ public final class OkHttpUtils {
 				.post()
 				.url(url)
 				.headers(headers)
-				.params(params)
+				.params(getMaps(params))
 				.build()
 				.connTimeOut(CONN_TIMEOUT)
 				.readTimeOut(SO_TIMEOUT)
@@ -100,5 +104,25 @@ public final class OkHttpUtils {
 				.headers(headers)
 				.build()
 				.execute(callBack);
+	}
+
+	/**
+	 * 为了方便，客户端使用OBJECT作为Params的Value的泛型，再给第三方传时，再转换成 Map<String, String>
+	 * @param params
+	 * @return
+	 */
+	private static HashMap<String, String> getMaps(Params params){
+		HashMap<String, String> maps = new HashMap<>();
+		if (params != null) {
+			Iterator<String> paramsIterator = params.keySet().iterator();
+			while (paramsIterator.hasNext()) {
+				String key = paramsIterator.next();
+				Object value = params.get(key);
+				if(!TextUtils.isEmpty(key)){
+					maps.put(key, value==null ? "" : value.toString());
+				}
+			}
+		}
+		return maps;
 	}
 }

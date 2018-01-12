@@ -12,7 +12,7 @@ import java.util.Iterator;
  *
  * Created by wuguangxin on 14/10/13
  */
-public class Params extends HashMap<String, String> implements IParams {
+public class Params extends HashMap<String, Object> implements IParams {
     private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,7 +24,7 @@ public class Params extends HashMap<String, String> implements IParams {
 	public Params put(String key, Object value){
 		if(value == null)
 			value = "";
-		super.put(key, String.valueOf(value));
+		super.put(key, value);
 		return this;
 	}
 
