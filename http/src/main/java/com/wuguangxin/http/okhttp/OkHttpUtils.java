@@ -112,8 +112,8 @@ public final class OkHttpUtils {
 		HashMap<String, String> maps = new HashMap<>();
 		if (params != null) {
 			for (String key : params.keySet()) {
-				String value = params.get(key);
-				maps.put(key, value);
+				Object value = params.get(key);
+				maps.put(key, String.valueOf(value));
 			}
 		}
 		return maps;
