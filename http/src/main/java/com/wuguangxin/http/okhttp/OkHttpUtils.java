@@ -1,13 +1,10 @@
 package com.wuguangxin.http.okhttp;
 
-import android.text.TextUtils;
-
 import com.wuguangxin.http.Params;
 import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -114,13 +111,9 @@ public final class OkHttpUtils {
 	private static HashMap<String, String> getMaps(Params params){
 		HashMap<String, String> maps = new HashMap<>();
 		if (params != null) {
-			Iterator<String> paramsIterator = params.keySet().iterator();
-			while (paramsIterator.hasNext()) {
-				String key = paramsIterator.next();
-				Object value = params.get(key);
-				if(!TextUtils.isEmpty(key)){
-					maps.put(key, value==null ? "" : value.toString());
-				}
+			for (String key : params.keySet()) {
+				String value = params.get(key);
+				maps.put(key, value);
 			}
 		}
 		return maps;
