@@ -14,6 +14,9 @@ import java.util.Iterator;
 public class Params extends HashMap<String, Object> implements IParams {
     private static final long serialVersionUID = 1L;
 
+    public Params() {
+    }
+
     public Params(Params params) {
         if (params != null) {
             for (String key : params.keySet()) {
