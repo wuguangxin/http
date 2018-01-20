@@ -11,8 +11,16 @@ import java.util.Iterator;
  * 封装请求参数的HashMap便捷类，需要Google的gson.jar支持。
  * Created by wuguangxin on 14/10/13
  */
-public class Params extends HashMap<String, String> implements IParams {
+public class Params extends HashMap<String, Object> implements IParams {
     private static final long serialVersionUID = 1L;
+
+    public Params(Params params) {
+        if (params != null) {
+            for (String key : params.keySet()) {
+                put(key, params.get(key));
+            }
+        }
+    }
 
     /**
      * 插入key-value键值对，如果key或者value为null或""，则不插入，如果Value不是String类型时，转换为String
