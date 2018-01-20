@@ -4,8 +4,8 @@ apply plugin: 'com.novoda.bintray-release' // bintray
 
 // 20171128
 def mModulesName = "http"
-def mVersionCode = 5
-def mVersionName = "1.2.2"
+def mVersionCode = 6
+def mVersionName = "1.2.3"
 def mDescription = "修复Params的put方法，强制把所有Object类型的value都转换为String插入Map"
 
 android {
