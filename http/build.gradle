@@ -4,17 +4,17 @@ apply plugin: 'com.novoda.bintray-release' // bintray
 
 // 20171128
 def mModulesName = "http"
-def mVersionCode = 6
-def mVersionName = "1.2.3"
-def mDescription = "修复Params的put方法，强制把所有Object类型的value都转换为String插入Map"
+def mVersionCode = 7
+def mVersionName = "1.3.0"
+def mDescription = "优化升级到gradle-4.1"
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 11
-        targetSdkVersion 25
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode mVersionCode
         versionName mVersionName
         description mDescription
