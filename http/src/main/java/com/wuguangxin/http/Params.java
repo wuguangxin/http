@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * 封装请求参数的HashMap便捷类，需要Google的gson.jar支持。
@@ -21,6 +22,14 @@ public class Params extends HashMap<String, Object> implements IParams {
         if (params != null) {
             for (String key : params.keySet()) {
                 put(key, params.get(key));
+            }
+        }
+    }
+
+    public Params(Map<String, String> map) {
+        if (map != null) {
+            for (String key : map.keySet()) {
+                put(key, map.get(key));
             }
         }
     }
@@ -106,5 +115,21 @@ public class Params extends HashMap<String, Object> implements IParams {
     @Override
     public JSONObject toJSONObject() {
         return new JSONObject(this);
+    }
+
+    /**
+     * 为了方便，客户端使用OBJECT作为Params的Value的泛型，再给第三方传时，再转换成 Map<String, String>
+     * @param params
+     * @return
+     */
+    private static HashMap<String, String> toHashMap(Params params){
+        HashMap<String, String> maps = new HashMap<>();
+        if (params != null) {
+            for (String key : params.keySet()) {
+                Object value = params.get(key);
+                maps.put(key, String.valueOf(value));
+            }
+        }
+        return maps;
     }
 }

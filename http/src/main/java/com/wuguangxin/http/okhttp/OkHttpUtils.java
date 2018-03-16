@@ -4,6 +4,7 @@ import com.wuguangxin.http.Params;
 import com.zhy.http.okhttp.callback.Callback;
 import com.zhy.http.okhttp.callback.FileCallBack;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +74,46 @@ public final class OkHttpUtils {
 				.connTimeOut(CONN_TIMEOUT)
 				.readTimeOut(SO_TIMEOUT)
 				.execute(callback);
+	}
+
+	/**
+	 * 发送POST上传文件请求
+	 * @param params
+	 * @param url
+	 * @param name 文件对应的key
+	 * @param fileName 文件名
+	 * @param file 文件
+	 * @param callback 回调
+	 */
+	public static final void postFile(Params params, String url, String name, String fileName, File file, Callback callback){
+		com.zhy.http.okhttp.OkHttpUtils
+				.post()
+				.url(url)
+				.headers(headers)
+				.params(getMaps(params))
+				.addFile(name, fileName, file)
+				.build()
+				.connTimeOut(CONN_TIMEOUT)
+				.readTimeOut(SO_TIMEOUT)
+				.execute(callback);
+	}
+
+	/**
+	 * 上传文件（POST方式）
+	 * @param url 接口地址
+	 * @param name
+	 * @param fileName
+	 * @param file
+	 * @param callBack
+	 */
+	public static final void upload(String url, String name, String fileName, File file, FileCallBack callBack){
+		com.zhy.http.okhttp.OkHttpUtils//
+				.post()
+				.url(url)
+				.addFile(name, fileName, file)
+				.headers(headers)
+				.build()
+				.execute(callBack);
 	}
 
 	/**
