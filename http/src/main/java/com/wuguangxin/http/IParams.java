@@ -7,6 +7,14 @@ import org.json.JSONObject;
  * Created by wuguangxin on 14/10/13
  */
 public interface IParams {
+
+    /**
+     * 添加数据
+     * @param key
+     * @param value
+     */
+    Params put(String key, Object value);
+
     /**
      * 获取value
      * @param key key

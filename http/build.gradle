@@ -4,9 +4,9 @@ apply plugin: 'com.novoda.bintray-release' // bintray
 
 // 20171128
 def mModulesName = "http"
-def mVersionCode = 8
-def mVersionName = "1.4.0"
-def mDescription = "新增上传文件功能，优化Params类"
+def mVersionCode = 9
+def mVersionName = "1.4.1"
+def mDescription = "优化Params类"
 
 android {
     compileSdkVersion 27

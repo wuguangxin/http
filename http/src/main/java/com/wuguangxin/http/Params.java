@@ -41,6 +41,7 @@ public class Params extends HashMap<String, Object> implements IParams {
      * @param value Object
      * @return Params
      */
+    @Override
     public Params put(String key, Object value) {
         if (!TextUtils.isEmpty(key) && value != null && value.toString().length() > 0) {
             super.put(key, String.valueOf(value));
@@ -122,7 +123,7 @@ public class Params extends HashMap<String, Object> implements IParams {
      * @param params
      * @return
      */
-    private static HashMap<String, String> toHashMap(Params params){
+    public static HashMap<String, String> toHashMap(Params params){
         HashMap<String, String> maps = new HashMap<>();
         if (params != null) {
             for (String key : params.keySet()) {
